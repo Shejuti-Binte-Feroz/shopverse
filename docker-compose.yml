@@ -2,11 +2,16 @@ version: '3.8'
 services:
   postgres:
     image: postgres:15
-    container_name: postgres_db
+    container_name: shopverse_postgres
     restart: always
     environment:
       POSTGRES_USER: shejuti
       POSTGRES_PASSWORD: password123
-      POSTGRES_DB: usersdb
+      POSTGRES_DB: ecommerce_db
     ports:
       - "5432:5432"
+    volumes:
+      - shopverse_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  shopverse_postgres_data:
